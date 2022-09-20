@@ -46,12 +46,17 @@ main section.categories-show {
         transition: all 150ms linear;
         background-color: rgba(0, 130, 29, 0.7);
         h1 {
-          color: white;
+          color: hsl(0, 0%, 100%);
         }
 
         button {
           background: white;
           color: rgba(0, 130, 29, 0.7);
+        }
+        
+        .soldout {
+          background:rgba(224, 14, 14, 0.8);
+          color: white;
         }
       }
       img {
