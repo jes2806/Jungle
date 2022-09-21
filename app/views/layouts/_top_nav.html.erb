@@ -6,7 +6,17 @@
     <h2>Where you can find any plants!</h2>
   </section>
 </header>
+
 <nav class="navbar navbar-expand-lg navbar-dark sticky-nav">
+
+  <ul class="navbar-nav">
+    <% if current_user %>
+      Welcome <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+  </ul>
+
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
     <button
@@ -42,8 +52,9 @@
           <%# </ul>
         </li> %>
       </ul>
-        <%= link_to 'about', class: "nav-link" do %> About Us <% end %>
+      
       <ul class="navbar-nav">
+      <li><%= link_to 'About', about_path, class: "nav-link" %></li>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-danger"
@@ -65,6 +76,7 @@
           <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>
         </li>
+        
       </ul>
     </div>
   </div>
